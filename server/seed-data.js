@@ -565,23 +565,311 @@ function printSeedSummary() {
 }
 
 /*
-  仅在点位表为空时写入演示数据。
-  用于 Render Free 等没有 Shell 的环境：服务首次启动时自动初始化，
-  同时避免服务重启后清空已经产生的用户反馈和统计数据。
+  补齐初始地图数据，但不会删除用户反馈、访问统计或后台新增内容。
+  用于 Render Free 等没有 Shell 的环境：服务启动时自动修复缺失数据。
 */
-function seedDataIfEmpty() {
+function ensureSeedData() {
+  const transaction = db.transaction(() => {
+    const upsertSpot = db.prepare(`
+      INSERT INTO spots (
+        id,
+        name,
+        subtitle,
+        type,
+        route_order,
+        map_x,
+        map_y,
+        latitude,
+        longitude,
+        cover_image,
+        short_intro,
+        story_content,
+        story_source,
+        next_spot_id,
+        navigation_url,
+        is_published,
+        updated_at
+      ) VALUES (
+        @id,
+        @name,
+        @subtitle,
+        @type,
+        @route_order,
+        @map_x,
+        @map_y,
+        @latitude,
+        @longitude,
+        @cover_image,
+        @short_intro,
+        @story_content,
+        @story_source,
+        @next_spot_id,
+        @navigation_url,
+        @is_published,
+        CURRENT_TIMESTAMP
+      )
+      ON CONFLICT(id) DO UPDATE SET
+        name = @name,
+        subtitle = @subtitle,
+        type = @type,
+        route_order = @route_order,
+        map_x = @map_x,
+        map_y = @map_y,
+        latitude = @latitude,
+        longitude = @longitude,
+        cover_image = @cover_image,
+        short_intro = @short_intro,
+        story_content = @story_content,
+        story_source = @story_source,
+        navigation_url = @navigation_url,
+        is_published = @is_published,
+        updated_at = CURRENT_TIMESTAMP
+    `)
+
+    const updateNextSpot = db.prepare(`
+      UPDATE spots
+      SET next_spot_id = ?
+      WHERE id = ?
+    `)
+
+    const insertAudio = db.prepare(`
+      INSERT INTO audios (
+        spot_id,
+        title,
+        audio_url,
+        duration,
+        transcript,
+        audio_type,
+        record_time,
+        record_location,
+        narrator,
+        authorization_status,
+        is_public,
+        sort_order,
+        updated_at
+      ) VALUES (
+        @spot_id,
+        @title,
+        @audio_url,
+        @duration,
+        @transcript,
+        @audio_type,
+        @record_time,
+        @record_location,
+        @narrator,
+        @authorization_status,
+        @is_public,
+        @sort_order,
+        CURRENT_TIMESTAMP
+      )
+    `)
+
+    const audioExists = db.prepare(`
+      SELECT id
+      FROM audios
+      WHERE spot_id = ?
+        AND title = ?
+      LIMIT 1
+    `)
+
+    const insertQuestion = db.prepare(`
+      INSERT INTO quiz_questions (
+        spot_id,
+        question,
+        question_type,
+        options_json,
+        correct_answer,
+        explanation,
+        is_published,
+        updated_at
+      ) VALUES (
+        @spot_id,
+        @question,
+        @question_type,
+        @options_json,
+        @correct_answer,
+        @explanation,
+        @is_published,
+        CURRENT_TIMESTAMP
+      )
+    `)
+
+    const questionExists = db.prepare(`
+      SELECT id
+      FROM quiz_questions
+      WHERE spot_id = ?
+        AND question = ?
+      LIMIT 1
+    `)
+
+    const insertService = db.prepare(`
+      INSERT INTO service_points (
+        name,
+        type,
+        address,
+        map_x,
+        map_y,
+        latitude,
+        longitude,
+        description,
+        opening_hours,
+        navigation_url,
+        is_published,
+        updated_at
+      ) VALUES (
+        @name,
+        @type,
+        @address,
+        @map_x,
+        @map_y,
+        @latitude,
+        @longitude,
+        @description,
+        @opening_hours,
+        @navigation_url,
+        @is_published,
+        CURRENT_TIMESTAMP
+      )
+    `)
+
+    const updateService = db.prepare(`
+      UPDATE service_points
+      SET
+        type = @type,
+        address = @address,
+        map_x = @map_x,
+        map_y = @map_y,
+        latitude = @latitude,
+        longitude = @longitude,
+        description = @description,
+        opening_hours = @opening_hours,
+        navigation_url = @navigation_url,
+        is_published = @is_published,
+        updated_at = CURRENT_TIMESTAMP
+      WHERE name = @name
+        AND address = @address
+    `)
+
+    const serviceExists = db.prepare(`
+      SELECT id
+      FROM service_points
+      WHERE name = ?
+        AND address = ?
+      LIMIT 1
+    `)
+
+    coreSpots.forEach((spot) => {
+      upsertSpot.run({
+        id: spot.id,
+        name: spot.name,
+        subtitle: spot.subtitle,
+        type: spot.type,
+        route_order: spot.route_order,
+        map_x: spot.map_x,
+        map_y: spot.map_y,
+        latitude: spot.latitude,
+        longitude: spot.longitude,
+        cover_image: spot.cover_image,
+        short_intro: spot.short_intro,
+        story_content: spot.story_content,
+        story_source: spot.story_source,
+        next_spot_id: null,
+        navigation_url: spot.navigation_url,
+        is_published: spot.is_published
+      })
+    })
+
+    coreSpots.forEach((spot) => {
+      updateNextSpot.run(spot.next_spot_id || null, spot.id)
+    })
+
+    coreSpots.forEach((spot) => {
+      const existingAudio = audioExists.get(
+        spot.id,
+        spot.audio.title
+      )
+
+      if (!existingAudio) {
+        insertAudio.run({
+          spot_id: spot.id,
+          title: spot.audio.title,
+          audio_url: spot.audio.audio_url,
+          duration: spot.audio.duration,
+          transcript: spot.audio.transcript,
+          audio_type: spot.audio.audio_type,
+          record_time: '2026年暑期社会实践采集',
+          record_location: spot.audio.record_location,
+          narrator: '赤水回声实践团队',
+          authorization_status: 'internal',
+          is_public: 1,
+          sort_order: 1
+        })
+      }
+
+      const existingQuestion = questionExists.get(
+        spot.id,
+        spot.question.question
+      )
+
+      if (!existingQuestion) {
+        insertQuestion.run({
+          spot_id: spot.id,
+          question: spot.question.question,
+          question_type: 'single',
+          options_json: JSON.stringify(spot.question.options),
+          correct_answer: spot.question.correct_answer,
+          explanation: spot.question.explanation,
+          is_published: 1
+        })
+      }
+    })
+
+    servicePoints.forEach((service) => {
+      const existingService = serviceExists.get(
+        service.name,
+        service.address
+      )
+
+      if (existingService) {
+        updateService.run(service)
+      } else {
+        insertService.run(service)
+      }
+    })
+  })
+
+  transaction()
+}
+
+function getTableCount(tableName) {
   const result = db
-    .prepare('SELECT COUNT(*) AS total FROM spots')
+    .prepare(`SELECT COUNT(*) AS total FROM ${tableName}`)
     .get()
 
-  const spotCount = Number(result?.total || 0)
+  return Number(result?.total || 0)
+}
 
-  if (spotCount > 0) {
-    console.log(`检测到已有 ${spotCount} 个点位，跳过初始化数据写入。`)
+/*
+  仅在初始数据不完整时补齐，避免服务重启后清空用户反馈和统计数据。
+*/
+function seedDataIfEmpty() {
+  const spotCount = getTableCount('spots')
+  const audioCount = getTableCount('audios')
+  const questionCount = getTableCount('quiz_questions')
+  const serviceCount = getTableCount('service_points')
+
+  const dataComplete =
+    spotCount >= coreSpots.length &&
+    audioCount >= coreSpots.length &&
+    questionCount >= coreSpots.length &&
+    serviceCount >= servicePoints.length
+
+  if (dataComplete) {
+    console.log('初始地图数据完整，跳过数据补齐。')
     return false
   }
 
-  seedData()
+  ensureSeedData()
   printSeedSummary()
   return true
 }
@@ -593,5 +881,6 @@ if (require.main === module) {
 
 module.exports = {
   seedData,
+  ensureSeedData,
   seedDataIfEmpty
 }

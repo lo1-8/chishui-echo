@@ -18,10 +18,11 @@ const { fail } = require('./utils/response')
 
 const app = express()
 
-// 允许本地开发环境，以及通过 ALLOWED_ORIGINS 配置的线上域名访问
+// 允许本地开发、GitHub Pages 线上地址，以及 ALLOWED_ORIGINS 中的其他域名访问
 const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:5174',
+  'https://lo1-8.github.io',
   ...(process.env.ALLOWED_ORIGINS || '')
     .split(',')
     .map((origin) => origin.trim())
