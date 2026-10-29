@@ -2,11 +2,15 @@ require('dotenv').config()
 
 const app = require('./src/app')
 const initializeDatabase = require('./src/config/initDatabase')
+const { seedDataIfEmpty } = require('./seed-data')
 
 const PORT = process.env.PORT || 3000
 
 // 在服务启动前初始化数据库和数据表
 initializeDatabase()
+
+// 数据库为空时自动写入初始地图数据，避免依赖 Render Free 不支持的 Shell
+seedDataIfEmpty()
 
 app.listen(PORT, () => {
   console.log('')

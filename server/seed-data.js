@@ -552,14 +552,46 @@ coreSpots.forEach((spot) => {
   transaction()
 }
 
-seedData()
+function printSeedSummary() {
+  console.log('')
+  console.log('==============================================')
+  console.log('赤水回声真实地图数据写入成功')
+  console.log('==============================================')
+  console.log(`核心点位数量：${coreSpots.length}`)
+  console.log(`服务设施数量：${servicePoints.length}`)
+  console.log('数据库已写入：点位、音频、问答、服务设施。')
+  console.log('==============================================')
+  console.log('')
+}
 
-console.log('')
-console.log('==============================================')
-console.log('赤水回声真实地图数据写入成功')
-console.log('==============================================')
-console.log(`核心点位数量：${coreSpots.length}`)
-console.log(`服务设施数量：${servicePoints.length}`)
-console.log('数据库已写入：点位、音频、问答、服务设施。')
-console.log('==============================================')
-console.log('')
+/*
+  仅在点位表为空时写入演示数据。
+  用于 Render Free 等没有 Shell 的环境：服务首次启动时自动初始化，
+  同时避免服务重启后清空已经产生的用户反馈和统计数据。
+*/
+function seedDataIfEmpty() {
+  const result = db
+    .prepare('SELECT COUNT(*) AS total FROM spots')
+    .get()
+
+  const spotCount = Number(result?.total || 0)
+
+  if (spotCount > 0) {
+    console.log(`检测到已有 ${spotCount} 个点位，跳过初始化数据写入。`)
+    return false
+  }
+
+  seedData()
+  printSeedSummary()
+  return true
+}
+
+if (require.main === module) {
+  seedData()
+  printSeedSummary()
+}
+
+module.exports = {
+  seedData,
+  seedDataIfEmpty
+}
