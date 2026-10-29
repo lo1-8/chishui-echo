@@ -27,7 +27,7 @@ const initializeDatabase = require('./src/config/initDatabase')
 initializeDatabase()
 
 /* =====================================================
-   一、五个核心声音点位
+   一、十个核心声音点位
    ===================================================== */
 
 const coreSpots = [
@@ -47,7 +47,7 @@ const coreSpots = [
       '地下党活动旧址承载着太平古镇革命历史中隐秘而重要的一页。穿行于古镇街巷，历史不总是以宏大的姿态出现，它也常常藏在一扇门、一段石阶与普通人的日常之中。这里的故事提醒我们，革命事业的延续不仅依靠前线的壮阔行动，也离不开无数隐蔽战线工作者的坚守、联络与担当。',
     story_source:
       '请在正式上线前依据场馆资料、地方志或权威党史资料进一步核验与补充。',
-    next_spot_id: 2,
+    next_spot_id: 8,
     navigation_url: 'https://map.baidu.com/search/地下党活动旧址',
     is_published: 1,
     audio: {
@@ -77,7 +77,7 @@ const coreSpots = [
     name: '毛泽东四渡赤水纪念馆',
     subtitle: '在历史节点中理解战略智慧',
     type: '红色纪念馆',
-    route_order: 2,
+    route_order: 4,
     map_x: 34.875,
     map_y: 49.1818181818182,
     longitude: 106.045510,
@@ -88,7 +88,7 @@ const coreSpots = [
       '毛泽东四渡赤水纪念馆以相关历史资料、空间叙事和红色记忆为线索，帮助参观者理解长征途中灵活机动、实事求是的战略智慧。面对复杂局势，红军并未依赖单一固定路线，而是在不断变化的现实条件中主动判断、快速调整。今天走进纪念馆，既是回望历史，也是在理解一种面对困难时保持清醒、坚持判断与勇于行动的精神力量。',
     story_source:
       '请根据纪念馆公开展陈资料、权威党史材料补充正式史实来源。',
-    next_spot_id: 3,
+    next_spot_id: 6,
     navigation_url: 'https://map.baidu.com/search/毛泽东四渡赤水纪念馆',
     is_published: 1,
     audio: {
@@ -118,7 +118,7 @@ const coreSpots = [
     name: '古蔺县红军长征四渡赤水博物馆',
     subtitle: '从展陈与文物中回望长征历史',
     type: '红色博物馆',
-    route_order: 3,
+    route_order: 6,
     map_x: 45.0625,
     map_y: 56.2727272727273,
     longitude: 106.046580,
@@ -129,7 +129,7 @@ const coreSpots = [
       '古蔺县红军长征四渡赤水博物馆以文物、图片、文字和历史叙事呈现四渡赤水相关历史脉络。相较于单纯阅读文字，展陈空间能够把时间、人物、物件和地点连接起来。对于青年参观者而言，博物馆不仅提供历史知识，也提供了重新理解长征精神的入口：在困难中坚持理想，在变化中把握方向，在集体中凝聚力量。',
     story_source:
       '请依据博物馆展签、公开资料、地方志和正式讲解材料完善。',
-    next_spot_id: 4,
+    next_spot_id: 9,
     navigation_url: 'https://map.baidu.com/search/古蔺县红军长征四渡赤水博物馆',
     is_published: 1,
     audio: {
@@ -159,7 +159,7 @@ const coreSpots = [
     name: '四渡赤水太平渡陈列馆',
     subtitle: '一座陈列馆，一段渡口历史',
     type: '红色场馆',
-    route_order: 4,
+    route_order: 8,
     map_x: 48.4375,
     map_y: 63.6363636363636,
     longitude: 106.046888,
@@ -170,7 +170,7 @@ const coreSpots = [
       '四渡赤水太平渡陈列馆连接着古镇空间与红色历史记忆。展陈中的物件、图片与故事，让渡口不再只是地图上的一个地名，而成为理解历史行动的重要空间节点。站在这里，可以尝试将展厅中的历史线索与古镇街巷、赤水河岸以及接下来的渡口实景联系起来：历史并不只存在于展板上，它也保留在今天仍可行走、聆听和观察的山河之间。',
     story_source:
       '请根据陈列馆官方资料、讲解词和权威党史材料进行最终核验。',
-    next_spot_id: 5,
+    next_spot_id: 10,
     navigation_url: 'https://map.baidu.com/search/四渡赤水太平渡陈列馆',
     is_published: 1,
     audio: {
@@ -200,7 +200,7 @@ const coreSpots = [
     name: '太平渡渡口',
     subtitle: '赤水河畔，历史仍在回响',
     type: '渡口遗址',
-    route_order: 5,
+    route_order: 10,
     map_x: 83.8125,
     map_y: 24.1818181818182,
     longitude: 106.050240,
@@ -340,7 +340,7 @@ const coreSpots = [
     story_content:
       '炊事房旧址，是红军长征经过古蔺时留下的生活印记。锅灶虽已沉默，炊烟背后的军民情谊却从未远去。那段艰苦岁月里，炊事员以一餐一饭保障行军，群众也以朴实援助支持红军。这段故事提醒我们，征程不仅在战场，也在无数平凡岗位的坚守中。',
     story_source: '',
-    next_spot_id: null,
+    next_spot_id: 4,
     navigation_url: '',
     is_published: 1,
     audio: {
@@ -371,7 +371,7 @@ const coreSpots = [
     story_content:
       '1935年2月19日至21日，中央红军在太平渡二渡赤水。为掩护主力渡河及船工撤出浮桥，红五军团留下约一个营（约150人）的兵力在对岸警戒。国民党川军潘左周华成部及地方武装共3000余人随后追击渡河。早已埋伏在对岸树林中的红五军团某部突然发起猛攻，成功阻击来敌，粉碎了敌军的追击企图',
     story_source: '',
-    next_spot_id: null,
+    next_spot_id: 5,
     navigation_url: '',
     is_published: 1,
     audio: null,
@@ -1006,6 +1006,25 @@ function getTableCount(tableName) {
 }
 
 /*
+  同步核心点位的游览顺序和“下一站”路线。
+  数据完整时也会执行，保证顺序调整在重新部署后生效，
+  但不会改动点位的其他内容，也不会影响反馈和统计数据。
+*/
+function syncSpotOrder() {
+  const updateOrder = db.prepare(`
+    UPDATE spots
+    SET
+      route_order = ?,
+      next_spot_id = ?
+    WHERE id = ?
+  `)
+
+  coreSpots.forEach((spot) => {
+    updateOrder.run(spot.route_order, spot.next_spot_id || null, spot.id)
+  })
+}
+
+/*
   仅在初始数据不完整时补齐，避免服务重启后清空用户反馈和统计数据。
 */
 function seedDataIfEmpty() {
@@ -1025,7 +1044,8 @@ function seedDataIfEmpty() {
     serviceCount >= servicePoints.length
 
   if (dataComplete) {
-    console.log('初始地图数据完整，跳过数据补齐。')
+    syncSpotOrder()
+    console.log('初始地图数据完整，跳过数据补齐，已同步点位顺序。')
     return false
   }
 
@@ -1042,5 +1062,6 @@ if (require.main === module) {
 module.exports = {
   seedData,
   ensureSeedData,
-  seedDataIfEmpty
+  seedDataIfEmpty,
+  syncSpotOrder
 }
