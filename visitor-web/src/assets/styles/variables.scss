@@ -1,0 +1,33 @@
+:root {
+  /* 品牌基础色 */
+  --color-primary: #a62a2a;
+  --color-primary-dark: #7b1e24;
+  --color-gold: #c69c4d;
+
+  /* 赤水河与山地意象 */
+  --color-river: #5d7d82;
+  --color-mountain: #59615f;
+
+  /* 页面背景和文字 */
+  --color-bg: #f7f2e8;
+  --color-card: #fffdf8;
+  --color-text: #252525;
+  --color-text-secondary: #6b6b6b;
+  --color-border: #e5ddd0;
+
+  /* 状态颜色 */
+  --color-success: #4d8c66;
+  --color-warning: #c68535;
+  --color-disabled: #a9a9a9;
+
+  /* 圆角与阴影 */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  --shadow-card: 0 8px 30px rgba(72, 49, 30, 0.1);
+  --shadow-soft: 0 4px 14px rgba(72, 49, 30, 0.08);
+
+  /* 页面宽度 */
+  --page-max-width: 768px;
+}

@@ -1,0 +1,36 @@
+# 依赖目录
+node_modules/
+
+# 前端构建结果
+dist/
+
+# 环境变量和密钥
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+*.local
+
+# 日志
+*.log
+
+# 本地 SQLite 数据库，不提交到 GitHub
+server/database/*.db
+server/database/*.db-shm
+server/database/*.db-wal
+
+# 后台运行时上传的文件不上传
+server/uploads/images/*
+server/uploads/audios/*
+
+# 但保留五个点位所需的初始化图片和音频
+!server/uploads/images/spots/
+!server/uploads/images/spots/**
+!server/uploads/audios/spots/
+!server/uploads/audios/spots/**
+
+# 系统文件
+.DS_Store
+Thumbs.db

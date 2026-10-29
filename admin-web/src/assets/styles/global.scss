@@ -1,0 +1,30 @@
+:root {
+  --admin-primary: #8f2929;
+  --admin-sidebar: #2d2523;
+  --admin-bg: #f5f6f8;
+  --admin-card: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-width: 1200px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  color: #1f1f1f;
+  background: var(--admin-bg);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "PingFang SC",
+    "Microsoft YaHei",
+    Arial,
+    sans-serif;
+}

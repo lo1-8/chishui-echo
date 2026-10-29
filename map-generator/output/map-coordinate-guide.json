@@ -1,0 +1,130 @@
+{
+  "map": {
+    "width": 1600,
+    "height": 1100,
+    "viewBox": "0 0 1600 1100",
+    "northUp": true,
+    "inputCoordinateSystem": "BD-09 / Baidu Map",
+    "outputCoordinateSystem": "SVG Relative Coordinate",
+    "bounds": {
+      "west": 106.0428,
+      "east": 106.0536,
+      "south": 28.1395,
+      "north": 28.1453
+    },
+    "note": [
+      "map_x / map_y 为点位相对于 SVG 画布的百分比。",
+      "后续 Vue 可通过 left: map_x%; top: map_y%; 动态叠加 Marker。",
+      "该地图底图不包含核心点位 Marker、服务设施 Marker 或推荐路线状态。",
+      "最终坐标建议在 Figma 中结合百度地图参考图进行人工校正。"
+    ]
+  },
+  "coreSpots": [
+    {
+      "id": 1,
+      "order": "01",
+      "name": "四渡赤水太平渡纪念馆",
+      "category": "红色场馆",
+      "longitude": 106.046888,
+      "latitude": 28.141424,
+      "baiduMapName": "四渡赤水太平渡纪念馆",
+      "x": 629.28,
+      "y": 706.86,
+      "map_x": 39.33,
+      "map_y": 64.26
+    },
+    {
+      "id": 2,
+      "order": "02",
+      "name": "地下党活动旧址",
+      "category": "红色旧址",
+      "longitude": 106.04486,
+      "latitude": 28.143128,
+      "baiduMapName": "地下党活动旧址",
+      "x": 360.76,
+      "y": 427.76,
+      "map_x": 22.55,
+      "map_y": 38.89
+    },
+    {
+      "id": 3,
+      "order": "03",
+      "name": "古蔺县红军长征四渡赤水博物馆",
+      "category": "红色博物馆",
+      "longitude": 106.04658,
+      "latitude": 28.141864,
+      "baiduMapName": "古蔺县红军长征四渡赤水博物馆",
+      "x": 588.5,
+      "y": 634.79,
+      "map_x": 36.78,
+      "map_y": 57.71
+    },
+    {
+      "id": 4,
+      "order": "04",
+      "name": "毛泽东四渡赤水纪念馆",
+      "category": "红色纪念馆",
+      "longitude": 106.04551,
+      "latitude": 28.14235,
+      "baiduMapName": "毛泽东四渡赤水纪念馆",
+      "x": 446.82,
+      "y": 555.19,
+      "map_x": 27.93,
+      "map_y": 50.47
+    },
+    {
+      "id": 5,
+      "order": "05",
+      "name": "太平渡渡口",
+      "category": "渡口遗址",
+      "longitude": 106.05024,
+      "latitude": 28.143705,
+      "baiduMapName": "太平渡渡口",
+      "x": 1073.11,
+      "y": 333.25,
+      "map_x": 67.07,
+      "map_y": 30.3
+    }
+  ],
+  "servicePoints": [
+    {
+      "id": "north-gate",
+      "name": "太平古镇-北门",
+      "category": "北门",
+      "icon": "gate",
+      "longitude": 106.044747,
+      "latitude": 28.143174,
+      "baiduMapName": "太平古镇-北门",
+      "x": 345.8,
+      "y": 420.22,
+      "map_x": 21.61,
+      "map_y": 38.2
+    },
+    {
+      "id": "parking-east",
+      "name": "太平古镇-东侧地上停车场",
+      "category": "停车场",
+      "icon": "parking",
+      "longitude": 106.050661,
+      "latitude": 28.143565,
+      "baiduMapName": "太平古镇-东侧地上停车场",
+      "x": 1128.85,
+      "y": 356.18,
+      "map_x": 70.55,
+      "map_y": 32.38
+    },
+    {
+      "id": "toilet-public",
+      "name": "公共厕所",
+      "category": "厕所",
+      "icon": "toilet",
+      "longitude": 106.045081,
+      "latitude": 28.142371,
+      "baiduMapName": "公共厕所",
+      "x": 390.02,
+      "y": 551.75,
+      "map_x": 24.38,
+      "map_y": 50.16
+    }
+  ]
+}

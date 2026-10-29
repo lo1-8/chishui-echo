@@ -1,0 +1,1099 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="1600"
+  height="1100"
+  viewBox="0 0 1600 1100"
+  fill="none"
+>
+  <title>赤水回声｜太平古镇艺术导览地图</title>
+  <desc>
+    赤水回声数字声音地图底图。
+    地图采用北朝上布局，包含赤水河、太平古镇、
+    古习路、主要道路、街巷、河岸步行线、街区肌理、
+    太平渡渡口声音水纹和指北针。
+    核心点位、服务设施、路线状态与用户交互由 Vue 动态叠加。
+  </desc>
+  <defs>
+    <!-- 页面晨雾背景渐变 -->
+    <linearGradient
+      id="background-gradient"
+      x1="0"
+      y1="0"
+      x2="1600"
+      y2="1100"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#FAF9F3" />
+      <stop offset="0.48" stop-color="#EEF2E9" />
+      <stop offset="1" stop-color="#DDE7DC" />
+    </linearGradient>
+    <!-- 赤水河主体渐变 -->
+    <linearGradient
+      id="river-gradient"
+      x1="0"
+      y1="80"
+      x2="1600"
+      y2="300"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#C3DCDA" />
+      <stop offset="0.52" stop-color="#89B4B0" />
+      <stop offset="1" stop-color="#5D8888" />
+    </linearGradient>
+    <!-- 河面反光渐变 -->
+    <linearGradient
+      id="river-highlight-gradient"
+      x1="0"
+      y1="100"
+      x2="1600"
+      y2="250"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop
+        stop-color="#F4E8C7"
+        stop-opacity="0.12"
+      />
+      <stop
+        offset="0.46"
+        stop-color="#F4E8C7"
+        stop-opacity="0.72"
+      />
+      <stop
+        offset="1"
+        stop-color="#F4E8C7"
+        stop-opacity="0.1"
+      />
+    </linearGradient>
+    <!-- 柔雾 -->
+    <filter
+      id="soft-blur"
+      x="-20%"
+      y="-20%"
+      width="140%"
+      height="140%"
+    >
+      <feGaussianBlur stdDeviation="14" />
+    </filter>
+    <!-- 极淡纸张纹理 -->
+    <pattern
+      id="paper-grain"
+      width="8"
+      height="8"
+      patternUnits="userSpaceOnUse"
+    >
+      <circle
+        cx="1"
+        cy="2"
+        r="0.5"
+        fill="#AAB9AB"
+        opacity="0.12"
+      />
+      <circle
+        cx="6"
+        cy="5"
+        r="0.45"
+        fill="#5F786B"
+        opacity="0.08"
+      />
+    </pattern>
+  </defs>
+  <!-- 背景 -->
+  <g id="01-background">
+    <rect
+      width="1600"
+      height="1100"
+      fill="#F7F6EF"
+    />
+    <rect
+      width="1600"
+      height="1100"
+      fill="url(#background-gradient)"
+      opacity="0.78"
+    />
+    <rect
+      width="1600"
+      height="1100"
+      fill="url(#paper-grain)"
+      opacity="0.2"
+    />
+  </g>
+  <!-- 极淡地貌与绿地 -->
+  
+  <g id="02-terrain-and-green-areas">
+    <!-- 赤水河南岸与古镇外围的淡绿过渡 -->
+    <path
+      d="
+        M0 310
+        C110 282 190 300 280 318
+        C390 342 482 330 575 348
+        C690 370 784 344 904 353
+        C1035 364 1130 332 1246 345
+        C1364 356 1492 335 1600 360
+        L1600 470
+        C1485 445 1365 464 1250 452
+        C1136 441 1043 476 926 464
+        C798 452 690 487 570 470
+        C453 454 337 485 223 466
+        C130 451 66 464 0 488
+        Z
+      "
+      fill="#C7D1C5"
+      opacity="0.28"
+    />
+
+    <!-- 古镇周边大范围绿地 -->
+    <path
+      d="
+        M88 502
+        C214 432 358 444 468 488
+        C572 528 658 505 768 518
+        C900 534 1006 498 1125 522
+        C1274 552 1404 516 1520 560
+        L1600 1030
+        C1455 1004 1314 1022 1170 988
+        C1024 953 899 995 748 966
+        C612 940 500 982 372 954
+        C259 930 157 948 0 1016
+        L0 600
+        Z
+      "
+      fill="#AAB9AB"
+      opacity="0.16"
+    />
+
+    <!-- 南部较弱地貌阴影 -->
+    <path
+      d="
+        M122 770
+        C278 726 408 758 544 735
+        C682 711 830 747 974 724
+        C1098 705 1238 729 1400 696
+        C1490 677 1553 686 1600 700
+        L1600 1100
+        L0 1100
+        L0 858
+        C48 826 82 792 122 770
+        Z
+      "
+      fill="#829889"
+      opacity="0.08"
+    />
+  </g>
+
+  <!-- 赤水河 -->
+  
+  <g id="03-river">
+    <!-- 赤水河主水体 -->
+    <path
+      id="chishui-river-base"
+      d="
+        M0 88
+        C86 82 160 96 238 105
+        C303 112 350 95 412 98
+        C496 101 554 128 622 135
+        C716 145 771 132 850 122
+        C940 111 1018 123 1100 111
+        C1192 98 1268 60 1358 48
+        C1452 35 1531 42 1600 64
+
+        L1600 252
+        C1525 236 1455 229 1385 238
+        C1290 250 1228 285 1138 292
+        C1055 300 975 276 892 284
+        C804 291 731 320 648 314
+        C564 308 502 276 428 266
+        C351 255 285 280 214 284
+        C137 288 75 264 0 280
+        Z
+      "
+      fill="url(#river-gradient)"
+    />
+
+    <!-- 赤水河北岸轮廓线 -->
+    <path
+      d="
+        M0 88
+        C86 82 160 96 238 105
+        C303 112 350 95 412 98
+        C496 101 554 128 622 135
+        C716 145 771 132 850 122
+        C940 111 1018 123 1100 111
+        C1192 98 1268 60 1358 48
+        C1452 35 1531 42 1600 64
+      "
+      fill="none"
+      stroke="#5D8888"
+      stroke-width="2"
+      opacity="0.34"
+    />
+
+    <!-- 赤水河南岸轮廓线 -->
+    <path
+      d="
+        M0 280
+        C75 264 137 288 214 284
+        C285 280 351 255 428 266
+        C502 276 564 308 648 314
+        C731 320 804 291 892 284
+        C975 276 1055 300 1138 292
+        C1228 285 1290 250 1385 238
+        C1455 229 1525 236 1600 252
+      "
+      fill="none"
+      stroke="#5D8888"
+      stroke-width="2"
+      opacity="0.4"
+    />
+
+    <!-- 河面晨光反射 -->
+    <path
+      id="chishui-river-subtle-highlight"
+      d="
+        M115 148
+        C245 132 341 163 444 161
+        C560 158 647 203 753 188
+        C868 172 955 178 1062 165
+        C1182 151 1264 115 1378 105
+        C1454 98 1516 106 1578 119
+        L1578 142
+        C1497 127 1437 128 1370 140
+        C1252 161 1177 192 1061 198
+        C947 204 870 195 761 216
+        C651 238 556 198 443 196
+        C335 193 248 167 121 181
+        Z
+      "
+      fill="url(#river-highlight-gradient)"
+      opacity="0.38"
+    />
+
+    <!-- 渡口附近水波：只出现于太平渡空间 -->
+    <g
+      id="taiping-ferry-sound-ripples"
+      fill="none"
+      stroke="#F4E8C7"
+      stroke-opacity="0.62"
+    >
+      <ellipse
+        cx="1077.11"
+        cy="238"
+        rx="28"
+        ry="7"
+        stroke-width="1.4"
+      />
+      <ellipse
+        cx="1077.11"
+        cy="238"
+        rx="48"
+        ry="12"
+        stroke-width="1.2"
+      />
+      <ellipse
+        cx="1077.11"
+        cy="238"
+        rx="70"
+        ry="18"
+        stroke-width="1"
+      />
+    </g>
+
+    <!-- 极小渡船，仅作太平渡空间氛围装饰 -->
+    <g
+      id="taiping-ferry-boat"
+      transform="translate(1051.11 232)"
+    >
+      <path
+        d="M0 0 C15 -6 36 -6 51 0 C36 8 15 8 0 0 Z"
+        fill="#5F786B"
+        opacity="0.72"
+      />
+      <path
+        d="M25 -2 V-26"
+        stroke="#5F786B"
+        stroke-width="2"
+        opacity="0.75"
+      />
+      <path
+        d="M25 -24 L42 -4 L25 -4 Z"
+        fill="#FCFBF5"
+        opacity="0.82"
+      />
+    </g>
+  </g>
+
+  <!-- 太平古镇边界 -->
+  
+  <g id="04-town-boundary">
+    <path
+      id="taiping-old-town-boundary"
+      d="
+        M222 398
+        C296 365 375 352 457 368
+        C540 384 603 422 683 427
+        C758 432 818 400 894 413
+        C975 428 1042 450 1116 434
+        C1186 419 1250 447 1324 462
+        C1414 480 1480 528 1512 596
+        C1536 650 1505 708 1450 733
+        C1380 765 1320 790 1242 810
+        C1150 834 1063 820 970 842
+        C875 864 785 838 699 857
+        C603 878 512 850 426 835
+        C330 818 247 783 198 714
+        C158 658 162 596 181 542
+        C199 490 183 442 222 398
+        Z
+      "
+      fill="#E9E3D6"
+      opacity="0.86"
+    />
+
+    <!-- 北侧古镇边界细线 -->
+    <path
+      d="
+        M222 398
+        C296 365 375 352 457 368
+        C540 384 603 422 683 427
+        C758 432 818 400 894 413
+        C975 428 1042 450 1116 434
+        C1186 419 1250 447 1324 462
+        C1414 480 1480 528 1512 596
+      "
+      fill="none"
+      stroke="#D2CABC"
+      stroke-width="1.5"
+      opacity="0.72"
+    />
+  </g>
+
+  <!-- 古镇街区肌理 -->
+  
+  <g id="05-town-texture">
+    <!-- 西北入口与北部门街区 -->
+    
+    <rect
+      x="265"
+      y="460"
+      width="74"
+      height="38"
+      rx="2"
+      fill="#D8CCBB"
+      opacity="0.54"
+      transform="rotate(-8 302 479)"
+    />
+  
+    
+    <rect
+      x="350"
+      y="436"
+      width="92"
+      height="34"
+      rx="2"
+      fill="#CBB9A7"
+      opacity="0.58"
+      transform="rotate(3 396 453)"
+    />
+  
+    
+    <rect
+      x="462"
+      y="454"
+      width="72"
+      height="42"
+      rx="2"
+      fill="#D8CCBB"
+      opacity="0.56"
+      transform="rotate(-4 498 475)"
+    />
+  
+    
+    <rect
+      x="550"
+      y="440"
+      width="88"
+      height="36"
+      rx="2"
+      fill="#B79B8D"
+      opacity="0.48"
+      transform="rotate(5 594 458)"
+    />
+  
+
+    <!-- 古镇中部街区 -->
+    
+    <rect
+      x="386"
+      y="528"
+      width="98"
+      height="52"
+      rx="2"
+      fill="#CBB9A7"
+      opacity="0.48"
+      transform="rotate(-10 435 554)"
+    />
+  
+    
+    <rect
+      x="506"
+      y="510"
+      width="64"
+      height="78"
+      rx="2"
+      fill="#D8CCBB"
+      opacity="0.55"
+      transform="rotate(8 538 549)"
+    />
+  
+    
+    <rect
+      x="595"
+      y="528"
+      width="102"
+      height="44"
+      rx="2"
+      fill="#CBB9A7"
+      opacity="0.5"
+      transform="rotate(-2 646 550)"
+    />
+  
+    
+    <rect
+      x="725"
+      y="498"
+      width="72"
+      height="66"
+      rx="2"
+      fill="#D8CCBB"
+      opacity="0.47"
+      transform="rotate(6 761 531)"
+    />
+  
+    
+    <rect
+      x="824"
+      y="522"
+      width="108"
+      height="48"
+      rx="2"
+      fill="#CBB9A7"
+      opacity="0.52"
+      transform="rotate(-5 878 546)"
+    />
+  
+    
+    <rect
+      x="958"
+      y="500"
+      width="74"
+      height="58"
+      rx="2"
+      fill="#D8CCBB"
+      opacity="0.46"
+      transform="rotate(4 995 529)"
+    />
+  
+    
+    <rect
+      x="1060"
+      y="523"
+      width="96"
+      height="42"
+      rx="2"
+      fill="#CBB9A7"
+      opacity="0.52"
+      transform="rotate(-6 1108 544)"
+    />
+  
+
+    <!-- 东侧与停车区附近建筑 -->
+    
+    <rect
+      x="1175"
+      y="510"
+      width="78"
+      height="45"
+      rx="2"
+      fill="#D8CCBB"
+      opacity="0.44"
+      transform="rotate(5 1214 532.5)"
+    />
+  
+    
+    <rect
+      x="1272"
+      y="538"
+      width="96"
+      height="52"
+      rx="2"
+      fill="#CBB9A7"
+      opacity="0.46"
+      transform="rotate(-8 1320 564)"
+    />
+  
+    
+    <rect
+      x="1366"
+      y="578"
+      width="58"
+      height="76"
+      rx="2"
+      fill="#D8CCBB"
+      opacity="0.42"
+      transform="rotate(8 1395 616)"
+    />
+  
+
+    <!-- 中南部街区 -->
+    
+    <rect
+      x="312"
+      y="630"
+      width="80"
+      height="45"
+      rx="2"
+      fill="#D8CCBB"
+      opacity="0.46"
+      transform="rotate(4 352 652.5)"
+    />
+  
+    
+    <rect
+      x="425"
+      y="651"
+      width="94"
+      height="48"
+      rx="2"
+      fill="#CBB9A7"
+      opacity="0.48"
+      transform="rotate(-7 472 675)"
+    />
+  
+    
+    <rect
+      x="548"
+      y="620"
+      width="72"
+      height="70"
+      rx="2"
+      fill="#D8CCBB"
+      opacity="0.45"
+      transform="rotate(3 584 655)"
+    />
+  
+    
+    <rect
+      x="652"
+      y="655"
+      width="108"
+      height="45"
+      rx="2"
+      fill="#CBB9A7"
+      opacity="0.5"
+      transform="rotate(-4 706 677.5)"
+    />
+  
+    
+    <rect
+      x="798"
+      y="625"
+      width="82"
+      height="58"
+      rx="2"
+      fill="#D8CCBB"
+      opacity="0.44"
+      transform="rotate(6 839 654)"
+    />
+  
+    
+    <rect
+      x="910"
+      y="660"
+      width="96"
+      height="44"
+      rx="2"
+      fill="#CBB9A7"
+      opacity="0.46"
+      transform="rotate(-5 958 682)"
+    />
+  
+    
+    <rect
+      x="1035"
+      y="635"
+      width="72"
+      height="62"
+      rx="2"
+      fill="#D8CCBB"
+      opacity="0.42"
+      transform="rotate(7 1071 666)"
+    />
+  
+    
+    <rect
+      x="1140"
+      y="666"
+      width="110"
+      height="44"
+      rx="2"
+      fill="#CBB9A7"
+      opacity="0.45"
+      transform="rotate(-4 1195 688)"
+    />
+  
+
+    <!-- 南部稀疏街区 -->
+    
+    <rect
+      x="430"
+      y="736"
+      width="88"
+      height="42"
+      rx="2"
+      fill="#D8CCBB"
+      opacity="0.38"
+      transform="rotate(-6 474 757)"
+    />
+  
+    
+    <rect
+      x="548"
+      y="755"
+      width="70"
+      height="55"
+      rx="2"
+      fill="#CBB9A7"
+      opacity="0.4"
+      transform="rotate(4 583 782.5)"
+    />
+  
+    
+    <rect
+      x="665"
+      y="728"
+      width="98"
+      height="42"
+      rx="2"
+      fill="#D8CCBB"
+      opacity="0.38"
+      transform="rotate(-2 714 749)"
+    />
+  
+    
+    <rect
+      x="802"
+      y="748"
+      width="78"
+      height="48"
+      rx="2"
+      fill="#CBB9A7"
+      opacity="0.4"
+      transform="rotate(7 841 772)"
+    />
+  
+    
+    <rect
+      x="930"
+      y="730"
+      width="104"
+      height="40"
+      rx="2"
+      fill="#D8CCBB"
+      opacity="0.38"
+      transform="rotate(-5 982 750)"
+    />
+  
+    
+    <rect
+      x="1080"
+      y="752"
+      width="82"
+      height="50"
+      rx="2"
+      fill="#CBB9A7"
+      opacity="0.4"
+      transform="rotate(5 1121 777)"
+    />
+  
+
+    <!-- 仅突出三处重点建筑 -->
+    
+    <g class="landmark-building">
+      <rect
+        x="526"
+        y="601.92"
+        width="78"
+        height="46.08"
+        rx="2"
+        fill="#A38475"
+        opacity="0.88"
+      />
+
+      <path
+        d="
+          M520 601.92
+          L565 584
+          L610 601.92
+          L565 608.92
+          Z
+        "
+        fill="#665C55"
+        opacity="0.9"
+      />
+
+      
+    </g>
+  
+
+    
+    <g class="landmark-building">
+      <rect
+        x="790"
+        y="589.04"
+        width="86"
+        height="48.959999999999994"
+        rx="2"
+        fill="#A38475"
+        opacity="0.88"
+      />
+
+      <path
+        d="
+          M784 589.04
+          L833 570
+          L882 589.04
+          L833 596.04
+          Z
+        "
+        fill="#665C55"
+        opacity="0.9"
+      />
+
+      
+    </g>
+  
+
+    
+    <g class="landmark-building">
+      <rect
+        x="1128"
+        y="618.8"
+        width="76"
+        height="43.2"
+        rx="2"
+        fill="#A38475"
+        opacity="0.88"
+      />
+
+      <path
+        d="
+          M1122 618.8
+          L1166 602
+          L1210 618.8
+          L1166 625.8
+          Z
+        "
+        fill="#665C55"
+        opacity="0.9"
+      />
+
+      
+    </g>
+  
+  </g>
+
+  <!-- 道路与街巷 -->
+  
+  <g id="06-roads" fill="none" stroke-linecap="round">
+    <!-- 古习路底色 -->
+    <path
+      id="guxi-road-shadow"
+      d="
+        M118 352
+        C248 314 364 320 468 333
+        C598 350 699 323 820 328
+        C944 334 1058 306 1170 312
+        C1303 320 1412 300 1526 270
+      "
+      stroke="#F3E6C5"
+      stroke-width="16"
+      opacity="0.92"
+    />
+
+    <!-- 古习路中心线 -->
+    <path
+      id="guxi-road"
+      d="
+        M118 352
+        C248 314 364 320 468 333
+        C598 350 699 323 820 328
+        C944 334 1058 306 1170 312
+        C1303 320 1412 300 1526 270
+      "
+      stroke="#BF9E70"
+      stroke-width="3"
+      opacity="0.9"
+    />
+
+    <!-- 北门进入古镇道路 -->
+    <path
+      id="north-gate-road-base"
+      d="
+        M190 344
+        C236 384 260 417 290 465
+        C325 520 350 565 378 618
+      "
+      stroke="#FBFAF4"
+      stroke-width="11"
+      opacity="0.96"
+    />
+
+    <path
+      id="north-gate-road"
+      d="
+        M190 344
+        C236 384 260 417 290 465
+        C325 520 350 565 378 618
+      "
+      stroke="#A39B8E"
+      stroke-width="2"
+      opacity="0.76"
+    />
+
+    <!-- 古镇中部主道路 -->
+    <path
+      id="town-main-road-base"
+      d="
+        M274 478
+        C400 500 492 492 590 510
+        C694 529 776 548 872 542
+        C992 535 1110 554 1240 584
+        C1330 605 1400 632 1450 678
+      "
+      stroke="#FBFAF4"
+      stroke-width="12"
+      opacity="0.97"
+    />
+
+    <path
+      id="town-main-road"
+      d="
+        M274 478
+        C400 500 492 492 590 510
+        C694 529 776 548 872 542
+        C992 535 1110 554 1240 584
+        C1330 605 1400 632 1450 678
+      "
+      stroke="#A9A194"
+      stroke-width="2.1"
+      opacity="0.72"
+    />
+
+    <!-- 博物馆、纪念馆周边道路 -->
+    <path
+      id="museum-area-road-base"
+      d="
+        M626 512
+        C628 568 646 620 676 670
+        C704 715 726 754 742 807
+      "
+      stroke="#FBFAF4"
+      stroke-width="10"
+      opacity="0.96"
+    />
+
+    <path
+      id="museum-area-road"
+      d="
+        M626 512
+        C628 568 646 620 676 670
+        C704 715 726 754 742 807
+      "
+      stroke="#AAA196"
+      stroke-width="2"
+      opacity="0.68"
+    />
+
+    <!-- 东侧停车场连接道路 -->
+    <path
+      id="east-parking-road-base"
+      d="
+        M1452 330
+        C1420 378 1402 430 1384 478
+        C1362 538 1364 592 1398 646
+      "
+      stroke="#FBFAF4"
+      stroke-width="11"
+      opacity="0.96"
+    />
+
+    <path
+      id="east-parking-road"
+      d="
+        M1452 330
+        C1420 378 1402 430 1384 478
+        C1362 538 1364 592 1398 646
+      "
+      stroke="#AAA196"
+      stroke-width="2"
+      opacity="0.7"
+    />
+
+    <!-- 古镇内部次级街巷 -->
+    <g
+      id="town-secondary-streets"
+      stroke="#BEB5A9"
+      stroke-width="1.5"
+      opacity="0.58"
+    >
+      <path d="M430 468 C430 540 420 603 439 680" />
+      <path d="M520 490 C540 546 527 624 540 702" />
+      <path d="M740 526 C730 586 741 648 727 716" />
+      <path d="M842 540 C846 596 830 666 852 730" />
+      <path d="M956 542 C958 605 949 667 968 741" />
+      <path d="M1072 556 C1060 616 1072 684 1054 752" />
+      <path d="M1188 570 C1194 632 1180 694 1205 760" />
+
+      <path d="M336 580 C476 560 590 582 704 600 C830 620 946 588 1100 612" />
+      <path d="M370 675 C516 646 650 668 790 655 C932 641 1050 662 1220 646" />
+      <path d="M465 748 C606 724 738 743 888 724 C1005 708 1110 729 1186 716" />
+    </g>
+
+    <!-- 河岸慢行观察线 -->
+    <path
+      id="riverbank-walking-line"
+      d="
+        M242 389
+        C382 367 500 383 620 372
+        C750 360 868 378 990 360
+        C1124 341 1248 350 1384 328
+      "
+      stroke="#6F887C"
+      stroke-width="2"
+      stroke-dasharray="8 9"
+      opacity="0.56"
+    />
+  </g>
+
+  <!-- 地理名称 -->
+  
+  <g
+    id="07-landmark-labels"
+    font-family="Noto Sans SC, Microsoft YaHei, sans-serif"
+  >
+    <text
+      x="820"
+      y="410"
+      text-anchor="middle"
+      font-size="26"
+      letter-spacing="7"
+      fill="#708075"
+      opacity="0.6"
+    >
+      太平古镇
+    </text>
+
+    <text
+      x="1040"
+      y="82"
+      text-anchor="middle"
+      font-size="20"
+      letter-spacing="10"
+      fill="#5D8888"
+      opacity="0.78"
+    >
+      赤水河
+    </text>
+
+    <text
+      x="1028"
+      y="294"
+      text-anchor="middle"
+      font-size="13"
+      letter-spacing="4"
+      fill="#8F7C60"
+      opacity="0.72"
+    >
+      古习路
+    </text>
+  </g>
+
+  <!-- 雾化与细节装饰 -->
+  
+  <g id="08-decorations">
+    <!-- 河岸与古镇之间的极淡雾化过渡 -->
+    <path
+      d="
+        M178 372
+        C360 354 487 372 622 360
+        C785 345 920 368 1055 350
+        C1200 332 1334 350 1468 323
+      "
+      fill="none"
+      stroke="#FCFBF5"
+      stroke-width="18"
+      stroke-linecap="round"
+      opacity="0.16"
+      filter="url(#soft-blur)"
+    />
+
+    <!-- 古镇北部边缘的轻柔高光 -->
+    <path
+      d="
+        M220 398
+        C297 365 374 353 457 368
+        C545 385 600 423 682 428
+      "
+      fill="none"
+      stroke="#FCFBF5"
+      stroke-width="8"
+      opacity="0.18"
+      filter="url(#soft-blur)"
+    />
+  </g>
+
+  <!-- 指北针 -->
+  
+  <g
+    id="compass"
+    transform="translate(1460 920)"
+    fill="none"
+    stroke-linecap="round"
+  >
+    <circle
+      cx="0"
+      cy="0"
+      r="27"
+      stroke="#708075"
+      stroke-width="1"
+      opacity="0.55"
+    />
+
+    <path
+      d="M0 -20 L6 4 L0 0 L-6 4 Z"
+      fill="#9D4C47"
+      stroke="#9D4C47"
+      stroke-width="1"
+    />
+
+    <path
+      d="M0 20 L5 -4 L0 0 L-5 -4 Z"
+      fill="#FCFBF5"
+      stroke="#708075"
+      stroke-width="1"
+      opacity="0.72"
+    />
+
+    <text
+      x="-5"
+      y="-35"
+      fill="#708075"
+      stroke="none"
+      font-family="Cormorant Garamond, serif"
+      font-size="16"
+      font-weight="600"
+    >
+      N
+    </text>
+  </g>
+
+</svg>
