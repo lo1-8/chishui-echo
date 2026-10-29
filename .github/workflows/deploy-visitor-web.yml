@@ -16,8 +16,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
-  VITE_FILE_BASE_URL: ${{ secrets.VITE_FILE_BASE_URL }}
+  VITE_API_BASE_URL: https://chishui-echo-api.onrender.com/api
+  VITE_FILE_BASE_URL: https://chishui-echo-api.onrender.com
   VITE_BASE_PATH: /chishui-echo/
 
 jobs:
