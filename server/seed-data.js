@@ -234,6 +234,154 @@ const coreSpots = [
       explanation:
         '老鹰石是太平渡渡口河边一块天然巨石，当年搭建浮桥时，粗大的竹篾绳索就牢牢拴在这块石头上，用来固定浮桥，防止湍急的赤水河河水把浮桥冲走，是太平渡非常标志性的红色实物遗迹。'
     }
+  },
+
+  {
+    id: 6,
+    name: '司令部旧址',
+    subtitle: '赤水河畔的指挥中枢',
+    type: '红色场馆',
+    route_order: 5,
+    map_x: 42.5,
+    map_y: 50.91,
+    longitude: 0,
+    latitude: 0,
+    cover_image: '/uploads/images/spots/spot-06-headquarters.jpg',
+    short_intro: '驻足太平古镇长征街，重温四渡赤水战役运筹帷幄的红色岁月。',
+    story_content:
+      '油灯之下，谋划出奇兵.\n1935年2月，红军抵达太平渡，司令部里夜夜亮着油灯。指挥部的人员围在简易地图前反复研判敌情，敲定二渡赤水回师黔北的方案。\n敌人以为红军会向北突围，红军却反向杀回贵州，拿下娄山关、再占遵义，取得遵义大捷。这份扭转被动局面的作战计划，正是在太平古镇这座司令部里酝酿成型。狭小的房间里，没有先进通信设备，全靠电台、通讯员传递情报，在敌我力量悬殊的绝境中，依靠机动灵活的运动战思路，寻找战机。',
+    story_source: '',
+    next_spot_id: 3,
+    navigation_url: '',
+    is_published: 1,
+    audio: {
+      title: '四渡赤水出奇兵',
+      audio_url: '/uploads/audios/spots/spot-06-headquarters.mp3',
+      duration: 46,
+      transcript: '',
+      audio_type: '其他',
+      record_location: '网络素材',
+      narrator: '网络'
+    },
+    question: {
+      question: '太平古镇红军司令部旧址坐落在哪条街道？',
+      options: ['长征街', '赤水街', '红军街'],
+      correct_answer: '0',
+      explanation: '太平古镇红军司令部旧址坐落在红军街，这是一条美丽的街道。'
+    }
+  },
+
+  {
+    id: 7,
+    name: '非遗工坊',
+    subtitle: '豆香暖军民',
+    type: '其他',
+    route_order: 3,
+    map_x: 29.5,
+    map_y: 45.09,
+    longitude: 0,
+    latitude: 0,
+    cover_image: '/uploads/images/spots/spot-07-tofu-workshop.jpg',
+    short_intro: '古蔺传统豆花制作技艺点位，延续石磨点制古法，因招待四渡赤水红军而得名“红军豆腐”。',
+    story_content:
+      '太平古镇明清时期便是盐码头商贸集结地，当地热质豆腐技艺传承多年。1935年红军四渡赤水驻扎太平镇时，当地人拥护红军，把特制的外酥内嫩的豆腐送给红军品尝，而后被称为“红军豆腐”，广为流传。如今工坊仍坚持传统工艺，本地黄豆浸泡后石磨磨浆，卤水慢点点制，豆花嫩滑鲜香、豆香四溢，配上麻辣蘸水，既是本地人的日常烟火，也是游客必尝的古镇风味。',
+    story_source: '',
+    next_spot_id: 2,
+    navigation_url: '',
+    is_published: 1,
+    audio: null,
+    question: {
+      question: '传统红军豆花点制成型使用的核心原料是？',
+      options: ['卤水', '石膏', '内酯'],
+      correct_answer: '0',
+      explanation: '工坊坚持古法，用卤水慢点点制豆花，使其嫩滑鲜香、豆香四溢。'
+    }
+  },
+
+  {
+    id: 8,
+    name: '红军银行旧址',
+    subtitle: '街巷深处的红色暗线',
+    type: '红色旧址',
+    route_order: 2,
+    map_x: 22.8125,
+    map_y: 39.1818,
+    longitude: 0,
+    latitude: 0,
+    cover_image: '/uploads/images/spots/spot-08-red-army-bank.png',
+    short_intro: '原为太平古镇一处民房，红军长征期间曾作为秘密联络点，见证了隐蔽战线的忠诚与坚守。',
+    story_content:
+      '红军初到太平渡时，部队需要用钱向老百姓购买粮食和物资，可手里拿的却是苏维埃政府发行的纸币。当时国民党统治区根本不认这种“红票子”，老百姓见了也不敢收，怕变成废纸。为了让群众放心，红军决定在“永盛隆盐号”旧址上开设临时银行，并张贴告示：“红军买东西一律公平交易，凡收苏维埃纸币的老乡，可随时到临时银行按市价兑换成银元。”故事传开后，一位叫赵大娘的村民半信半疑，她把自己攒的一点干粮卖给红军，换回几张纸币。当天下午，她揣着纸币走进临时银行，工作人员热情地接待了她，按照1:1的比价当场兑给她白花花的银元。赵大娘攥着银元走出大门，逢人便说：“红军的票子能换钱，不骗人！”消息一传十、十传百，老百姓纷纷拿出粮食、盐巴、布匹与红军交易。临时银行前每天都排起长队，红军战士一边帮群众兑换，一边耐心解释政策。短短几天，部队就筹集到大量给养，而群众没有损失一分一毫。',
+    story_source: '',
+    next_spot_id: 7,
+    navigation_url: '',
+    is_published: 1,
+    audio: null,
+    question: {
+      question: '红军银行旧址原来是什么地方？',
+      options: ['炊事房', '太平古镇八大盐号之一的“永盛隆盐号”', '地主大院'],
+      correct_answer: '1',
+      explanation: '太平古镇著名盐号，后改造为红军银行，具有独特历史意义。'
+    }
+  },
+
+  {
+    id: 9,
+    name: '炊事房旧址',
+    subtitle: '炊烟深处的红色记忆',
+    type: '红色旧址',
+    route_order: 7,
+    map_x: 41.3125,
+    map_y: 58.4545,
+    longitude: 0,
+    latitude: 0,
+    cover_image: '/uploads/images/spots/spot-09-kitchen.jpeg',
+    short_intro: '一缕炊烟，见证红军长征途中的军民情深。',
+    story_content:
+      '炊事房旧址，是红军长征经过古蔺时留下的生活印记。锅灶虽已沉默，炊烟背后的军民情谊却从未远去。那段艰苦岁月里，炊事员以一餐一饭保障行军，群众也以朴实援助支持红军。这段故事提醒我们，征程不仅在战场，也在无数平凡岗位的坚守中。',
+    story_source: '',
+    next_spot_id: null,
+    navigation_url: '',
+    is_published: 1,
+    audio: {
+      title: '柴火燃烧声',
+      audio_url: '/uploads/audios/spots/spot-09-kitchen-fire.mp3',
+      duration: 60,
+      transcript: '生火炊饭中...',
+      audio_type: '环境声与青年旁白',
+      record_location: '声音模仿',
+      narrator: '声音模仿',
+      authorization_status: 'pending'
+    },
+    question: null
+  },
+
+  {
+    id: 10,
+    name: '红五军团军团部住地旧址',
+    subtitle: '赤水河畔的“铁流后卫”驻地',
+    type: '红色旧址',
+    route_order: 9,
+    map_x: 54.9375,
+    map_y: 48.7272,
+    longitude: 0,
+    latitude: 0,
+    cover_image: '/uploads/images/spots/spot-10-fifth-corps.jpg',
+    short_intro: '红五军团军团部驻地，四渡赤水重要遗址，全国重点文物保护单位。',
+    story_content:
+      '1935年2月19日至21日，中央红军在太平渡二渡赤水。为掩护主力渡河及船工撤出浮桥，红五军团留下约一个营（约150人）的兵力在对岸警戒。国民党川军潘左周华成部及地方武装共3000余人随后追击渡河。早已埋伏在对岸树林中的红五军团某部突然发起猛攻，成功阻击来敌，粉碎了敌军的追击企图',
+    story_source: '',
+    next_spot_id: null,
+    navigation_url: '',
+    is_published: 1,
+    audio: null,
+    question: {
+      question: '1935年红军四渡赤水期间，红五军团在太平古镇以少胜多、阻击了数倍于己的追敌，这场战斗叫什么？',
+      options: ['二郎滩背水战', '太平阻击战', '青杠坡战斗', '土城战役'],
+      correct_answer: '1',
+      explanation:
+        '1935年2月20日上午，红五军团某营在太平渡老鹰石渡口附近，成功阻击了3000余人的追敌，取得太平阻击战胜利。红军在古蔺还取得了二郎滩背水战等胜利。'
+    }
   }
 ]
 
@@ -516,30 +664,34 @@ coreSpots.forEach((spot) => {
   此时引用的 spots.id 已全部存在，因此不会触发外键错误。
 */
 coreSpots.forEach((spot) => {
-  insertAudio.run({
-    spot_id: spot.id,
-    title: spot.audio.title,
-    audio_url: spot.audio.audio_url,
-    duration: spot.audio.duration,
-    transcript: spot.audio.transcript,
-    audio_type: spot.audio.audio_type,
-    record_time: '2026年暑期社会实践采集',
-    record_location: spot.audio.record_location,
-    narrator: '赤水回声实践团队',
-    authorization_status: 'internal',
-    is_public: 1,
-    sort_order: 1
-  })
+  if (spot.audio) {
+    insertAudio.run({
+      spot_id: spot.id,
+      title: spot.audio.title,
+      audio_url: spot.audio.audio_url,
+      duration: spot.audio.duration,
+      transcript: spot.audio.transcript,
+      audio_type: spot.audio.audio_type,
+      record_time: spot.audio.record_time || '2026年暑期社会实践采集',
+      record_location: spot.audio.record_location,
+      narrator: spot.audio.narrator || '赤水回声实践团队',
+      authorization_status: spot.audio.authorization_status || 'internal',
+      is_public: 1,
+      sort_order: 1
+    })
+  }
 
-  insertQuestion.run({
-    spot_id: spot.id,
-    question: spot.question.question,
-    question_type: 'single',
-    options_json: JSON.stringify(spot.question.options),
-    correct_answer: spot.question.correct_answer,
-    explanation: spot.question.explanation,
-    is_published: 1
-  })
+  if (spot.question) {
+    insertQuestion.run({
+      spot_id: spot.id,
+      question: spot.question.question,
+      question_type: 'single',
+      options_json: JSON.stringify(spot.question.options),
+      correct_answer: spot.question.correct_answer,
+      explanation: spot.question.explanation,
+      is_published: 1
+    })
+  }
 })
     /*
       插入三个服务点。
@@ -784,43 +936,47 @@ function ensureSeedData() {
     })
 
     coreSpots.forEach((spot) => {
-      const existingAudio = audioExists.get(
-        spot.id,
-        spot.audio.title
-      )
+      if (spot.audio) {
+        const existingAudio = audioExists.get(
+          spot.id,
+          spot.audio.title
+        )
 
-      if (!existingAudio) {
-        insertAudio.run({
-          spot_id: spot.id,
-          title: spot.audio.title,
-          audio_url: spot.audio.audio_url,
-          duration: spot.audio.duration,
-          transcript: spot.audio.transcript,
-          audio_type: spot.audio.audio_type,
-          record_time: '2026年暑期社会实践采集',
-          record_location: spot.audio.record_location,
-          narrator: '赤水回声实践团队',
-          authorization_status: 'internal',
-          is_public: 1,
-          sort_order: 1
-        })
+        if (!existingAudio) {
+          insertAudio.run({
+            spot_id: spot.id,
+            title: spot.audio.title,
+            audio_url: spot.audio.audio_url,
+            duration: spot.audio.duration,
+            transcript: spot.audio.transcript,
+            audio_type: spot.audio.audio_type,
+            record_time: spot.audio.record_time || '2026年暑期社会实践采集',
+            record_location: spot.audio.record_location,
+            narrator: spot.audio.narrator || '赤水回声实践团队',
+            authorization_status: spot.audio.authorization_status || 'internal',
+            is_public: 1,
+            sort_order: 1
+          })
+        }
       }
 
-      const existingQuestion = questionExists.get(
-        spot.id,
-        spot.question.question
-      )
+      if (spot.question) {
+        const existingQuestion = questionExists.get(
+          spot.id,
+          spot.question.question
+        )
 
-      if (!existingQuestion) {
-        insertQuestion.run({
-          spot_id: spot.id,
-          question: spot.question.question,
-          question_type: 'single',
-          options_json: JSON.stringify(spot.question.options),
-          correct_answer: spot.question.correct_answer,
-          explanation: spot.question.explanation,
-          is_published: 1
-        })
+        if (!existingQuestion) {
+          insertQuestion.run({
+            spot_id: spot.id,
+            question: spot.question.question,
+            question_type: 'single',
+            options_json: JSON.stringify(spot.question.options),
+            correct_answer: spot.question.correct_answer,
+            explanation: spot.question.explanation,
+            is_published: 1
+          })
+        }
       }
     })
 
@@ -858,10 +1014,14 @@ function seedDataIfEmpty() {
   const questionCount = getTableCount('quiz_questions')
   const serviceCount = getTableCount('service_points')
 
+  // 部分点位按原始内容没有音频或问答，只统计应当存在的数量。
+  const expectedAudioCount = coreSpots.filter((spot) => spot.audio).length
+  const expectedQuestionCount = coreSpots.filter((spot) => spot.question).length
+
   const dataComplete =
     spotCount >= coreSpots.length &&
-    audioCount >= coreSpots.length &&
-    questionCount >= coreSpots.length &&
+    audioCount >= expectedAudioCount &&
+    questionCount >= expectedQuestionCount &&
     serviceCount >= servicePoints.length
 
   if (dataComplete) {
